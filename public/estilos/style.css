@@ -1,0 +1,11 @@
+h1{
+    font-family: 'Lobster', sans-serif;
+    font-family: 'Noto Serif', serif;
+    text-align: center;
+}
+#titulo{
+    background: rgb(11, 150, 214);
+}
+#cuerpo{
+    background: rgb(241, 239, 236);
+}

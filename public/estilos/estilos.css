@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lobster', sans-serif;
+    font-family: 'Noto Serif', serif;
+    background: rgba(10, 199, 233, 0.548);
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+}
+#fecha{
+    text-align: center;
+    color: rgb(128, 115, 115);
+    font-size: 30px;
+}
+.container{
+    width: 550px;
+    background: white;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.acceso{
+    color: rgb(0, 89, 255);
+    font-size: 18px;
+}
+.dni{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border-radius: 10px;
+}
+.botones{
+    display: flex;
+    margin-top: 20px;
+}
+.entrada{
+    background: rgb(19, 71, 214);
+    border-radius: 8px;
+    width:50%;
+    padding: 13px 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+.salida{
+    background: rgb(226, 36, 36);
+    border-radius: 8px;
+    width: 50%;
+    padding: 13px 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}

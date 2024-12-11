@@ -1,0 +1,649 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+header {
+    background-color: #004d40;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+header .menu-toggle {
+    display: none;
+    background-color: #004d40;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    min-width: 235px !important;
+    background-color: #00796b;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+.sidebar img {
+    width: 100px;
+    display: block;
+    margin: 0 auto 20px;
+}
+.sidebar h3 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.sidebar a:hover {
+    background-color: #004d40;
+}
+.sidebar a:last-child {
+    margin-top: 20px;
+    background-color: #c62828;
+}
+.sidebar a:last-child:hover {
+    background-color: #b71c1c;
+}
+.content {
+    margin-left: 20px;
+    margin-top: 30px;
+    padding: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    min-width: 800px; /* Asegura que la tabla no se reduzca demasiado */
+}
+.content h2 {
+    font-size: 28px; /* Aumentado el tamaño del texto */
+    margin-bottom: 20px;
+    color: #004d40;
+}
+.add-area-btn {
+    display: inline-block;
+    background-color: #00796b;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 16px; /* Aumentado el tamaño de texto */
+}
+.add-area-btn:hover {
+    background-color: #004d40;
+}
+.table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.table .btn-group {
+    display: flex;
+    justify-content: center;
+}
+
+.table .btn-group .btn {
+    margin: 5px 2px;
+}
+
+@media (max-width: 768px) {
+    .table .btn-group {
+        flex-direction: column; /* Coloca los botones en columna en pantallas pequeñas */
+        align-items: center;
+    }
+}
+
+th, td {
+    padding: 14px; /* Aumentado padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #00796b;
+    color: #fff;
+    font-size: 16px; /* Aumentado tamaño de fuente */
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+.action-links a {
+    color: #00796b;
+    text-decoration: none;
+    margin-right: 12px; /* Aumentado margen */
+    font-weight: bold;
+}
+.action-links a:hover {
+    color: #004d40;
+}
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s;
+    color: white;
+}
+/* Botón de editar - fondo verde */
+.edit-btn {
+    background-color: #4CAF50; /* Verde */
+}
+.edit-btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+/* Botón de eliminar - fondo rojo */
+.delete-btn {
+    background-color: #f44336; /* Rojo */
+    text-decoration: none;
+}
+.delete-btn i {
+    color: white; /* Cambiar color del ícono a blanco */
+}
+.delete-btn:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+/* Alinear íconos de forma centrada */
+.icon-btn i {
+    margin: 0;
+}
+.pagination {
+    display: flex;
+    justify-content: center; /* Centra los botones de paginación */
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #00796b;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #004d40;
+}
+
+.pagination a.active {
+    background-color: #004d40;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .pagination a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Título */
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+/* Estilo de los campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    height: 120px;
+}
+/* Estilos para los botones */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+/* Contenedor para los botones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+/* Estilo del botón de menú en pantallas pequeñas */
+.menu-toggle {
+    display: none; /* Ocultar por defecto en pantallas grandes */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    /* Menú de navegación */
+    header .menu-toggle {
+        display: block;
+        background-color: #004d40;
+        padding: 15px;
+        font-size: 24px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: -250px;
+        top: 0;
+        z-index: 1000;
+        width: 250px;
+        height: 100%;
+        background-color: #00796b;
+        transition: left 0.3s ease;
+        color: #fff;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .dashboard-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 12px;
+        font-size: 18px;
+        border-bottom: 1px solid #004d40;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        min-width: 600px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .pagination a {
+        padding: 8px 12px;
+        margin: 5px;
+    }
+
+    /* Estilos para las imágenes */
+    .sidebar img {
+        width: 80px;
+        margin: 0 auto 15px;
+    }
+
+    /* Ajustes de los botones */
+    .btn-group button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .popup-content .btn-group {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar a {
+        font-size: 16px;
+    }
+
+    .dashboard-container {
+        display: flex;
+        width: 100%;
+        margin-left: 240px; /* Agrega margen a la izquierda para separar el contenido de la barra lateral */
+    }
+    
+    .sidebar {
+        width: 220px;
+    }
+
+    .table-container {
+        padding: 10px;
+    }
+
+    table th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .popup-content {
+        padding: 10px;
+    }
+}
+
+/* Hacer que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+.table-container {
+overflow-x: auto; /* Activa el desplazamiento horizontal */
+-webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos móviles */
+}
+table {
+width: 100%;
+min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo para evitar que se vea distorsionada */
+border-collapse: collapse;
+}
+th, td {
+padding: 8px;
+text-align: left;
+border: 1px solid #ddd;
+}
+@media (min-width: 1024px) {
+.table-container {
+    overflow-x: hidden; /* Evitar desplazamiento horizontal en pantallas grandes */
+}
+table {
+    width: 100%; /* Ajustar la tabla al 100% del contenedor */
+}
+}
+/* Estilos para el Popup */
+.popup-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;  /* Reduce el ancho */
+    max-width: 400px;  /* Limita el ancho máximo */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;  /* Permite posicionar el botón de cierre */
+}
+
+.popup-content h3 {
+    text-align: center;
+}
+.popup-content .form-group {
+    margin-bottom: 15px;
+}
+
+#respuesta {
+    width: 100%;
+    height: 120px; /* Reduce la altura */
+    max-width: 100%; /* Asegura que no se desborde */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Permite que solo se pueda redimensionar en altura */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Reduce el espacio debajo de los campos */
+}
+
+/* Estilo general del popup */
+.popup-content {
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
+    width: 80%;  /* Ajusta el ancho */
+    margin: auto;
+}
+
+/* Estilo para el campo de texto (Respuesta) */
+.popup-content textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 14px;
+}
+
+/* Estilo para el campo de selección de archivo */
+.popup-content input[type="file"] {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Estilo del botón de cerrar */
+.close-btn {
+    color: #aaa;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
+}
+
+/* Grupo de botones */
+.popup-content .btn-group {
+    display: flex;
+    justify-content: space-between; /* Distribuye los botones a los extremos */
+    gap: 10px; /* Espacio entre los botones */
+    width: 100%; /* Asegura que los botones usen todo el ancho disponible */
+    position: relative; /* Asegura su posición dentro del contenedor */
+}
+
+/* Estilos de los botones dentro del popup */
+.popup-content .btn-group button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%; /* Asegura que los botones tengan el mismo tamaño y estén en una fila */
+    text-align: center; /* Centra el texto de los botones */
+}
+
+/* Botón de "Atender" */
+.popup-content .btn-group button.atender {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.popup-content .btn-group button.atender:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de "Cancelar" */
+.popup-content .btn-group button.cancelar {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.popup-content .btn-group button.cancelar:hover {
+    background-color: #5a6268;
+}
+
+/* Estilo para la paginación */
+.pagination a.active {
+    background-color: #0c855d;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* Estilo para el modal de derivar */
+.popup-modal {
+    display: none; /* El modal está oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el contenido del modal */
+.popup-modal .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        left: -250px; /* La barra lateral comienza fuera de la pantalla */
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #00796b;
+        padding: 15px;
+        color: #fff;
+        transition: left 0.3s ease; /* Animación suave al abrirla */
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        left: 0; /* Mueve la barra lateral a la pantalla cuando se activa */
+    }
+
+    .dashboard-container {
+        margin-left: 0; /* El contenido no tiene margen adicional */
+    }
+
+    /* Botón de menú visible solo en pantallas pequeñas */
+    header .menu-toggle {
+        display: block;
+        font-size: 30px; /* Tamaño grande para el icono de menú */
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+    }
+    /* Ajustar el estilo de los botones en el btn-group en pantallas pequeñas */
+    .popup-content .btn-group button {
+        width: 100%;
+        margin-bottom: 10px; /* Agrega margen inferior en móviles para mejor separación */
+    }
+}
+
+
+
+/* OTROS ESTILOS */
+.search-input {
+    padding: 8px;
+    margin-left: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-btn:hover {
+    background-color: #45a049;
+}
+
+
+

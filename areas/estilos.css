@@ -1,0 +1,328 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+header {
+    background-color: #004d40;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+header .menu-toggle {
+    display: none;
+    background-color: #004d40;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 235px;
+    background-color: #00796b;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+.sidebar img {
+    width: 100px;
+    display: block;
+    margin: 0 auto 20px;
+}
+.sidebar h3 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.sidebar a:hover {
+    background-color: #004d40;
+}
+.sidebar a:last-child {
+    margin-top: 20px;
+    background-color: #c62828;
+}
+.sidebar a:last-child:hover {
+    background-color: #b71c1c;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.content h2 {
+    font-size: 28px; /* Aumentado el tamaño del texto */
+    margin-bottom: 20px;
+    color: #004d40;
+}
+
+.add-area-btn {
+    display: inline-block;
+    background-color: #00796b;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.add-area-btn:hover {
+    background-color: #004d40; /* Cambio de color de fondo al pasar el mouse */
+    color: #fff; /* Mantiene el color blanco del texto */
+    text-decoration: none; /* Asegura que no haya subrayado */
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 14px; /* Aumentado padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #00796b;
+    color: #fff;
+    font-size: 16px; /* Aumentado tamaño de fuente */
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-links a {
+    color: #00796b;
+    text-decoration: none;
+    margin-right: 12px; /* Aumentado margen */
+    font-weight: bold;
+}
+
+.action-links a:hover {
+    color: #004d40;
+}
+
+@media (max-width: 768px) {
+    header .menu-toggle {
+        display: block; /* Muestra el ícono del menú solo en pantallas pequeñas */
+    }
+
+    .sidebar {
+        position: fixed; /* Cambiar a fixed para que se superponga al contenido */
+        left: -100%; /* Oculta el menú lateral fuera de la pantalla */
+        top: 0;
+        z-index: 1000;
+        width: 50%; /* Ajusta el ancho de la barra lateral al 50% en pantallas pequeñas */
+        height: 100%; /* Asegura que la barra lateral cubra toda la altura de la pantalla */
+        transition: left 0.3s ease; /* Agrega una transición para el efecto */
+    }
+
+    .sidebar.active {
+        left: 0; /* Cuando se activa, el menú lateral se muestra */
+    }
+
+    .dashboard-container {
+        flex-direction: column; /* En pantallas pequeñas, el contenido se muestra en columna */
+    }
+
+    .content {
+        margin-left: 0; /* Sin margen extra cuando el menú está oculto */
+    }
+
+    /* Ajustar la tabla y el contenido cuando la barra lateral está activa */
+    table, th, td {
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+    }
+
+    /* Ajustar el ancho de la tabla cuando el menú lateral está activo */
+    .table {
+        width: 100%; /* Asegura que las tablas ocupen el 100% del ancho disponible */
+    }
+
+    .pagination {
+        font-size: 14px; /* Reducir el tamaño de los botones de paginación */
+    }
+
+    /* No mover el contenido principal */
+    .main-content {
+        position: relative; /* Asegura que el contenido principal no se mueva */
+    }
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal form input, .modal form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal form button {
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal form button:hover {
+    background-color: #004d40;
+}
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s;
+    color: white;
+}
+
+/* Botón de editar - fondo verde */
+.edit-btn {
+    background-color: #4CAF50; /* Verde */
+}
+
+.edit-btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+/* Botón de eliminar - fondo rojo */
+.delete-btn {
+    background-color: #f44336; /* Rojo */
+    text-decoration: none;
+}
+.delete-btn i {
+    color: white; /* Cambiar color del ícono a blanco */
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+/* Alinear íconos de forma centrada */
+.icon-btn i {
+    margin: 0;
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #000;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: #4CAF50;
+    color: white;
+}

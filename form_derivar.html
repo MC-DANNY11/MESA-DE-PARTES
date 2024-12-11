@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Derivar Expediente</title>
+</head>
+<body>
+    <h2>Derivar Expediente</h2>
+    <form action="expedientes/derivar.php?id=1" method="POST"> <!-- Cambia id=1 según el expediente -->
+        <label for="id_area">Seleccione el área de destino:</label>
+        <select name="id_area" id="id_area" required>
+            <option value="1">Área 1</option>
+            <option value="2">Área 2</option>
+            <!-- Añade más opciones según las áreas disponibles en tu sistema -->
+        </select>
+        <button type="submit">Derivar Expediente</button>
+    </form>
+</body>
+</html>

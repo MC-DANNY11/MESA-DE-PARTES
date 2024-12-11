@@ -1,0 +1,146 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+header {
+    background-color: #004d40;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+header .menu-toggle {
+    display: none;
+    background-color: #004d40;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.dashboard-container {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background-color: #00796b;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+.sidebar img {
+    width: 100px;
+    display: block;
+    margin: 0 auto 20px;
+}
+.sidebar h3 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.sidebar a:hover {
+    background-color: #004d40;
+}
+.sidebar a:last-child {
+    margin-top: 20px;
+    background-color: #c62828;
+}
+.sidebar a:last-child:hover {
+    background-color: #b71c1c;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #004d40;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.table th {
+    background-color: #00796b;
+    color: #fff;
+}
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.pagination a {
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #00796b;
+    color: white;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+.pagination a:hover {
+    background-color: #004d40;
+}
+.pagination .active {
+    background-color: #004d40;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header .menu-toggle {
+        display: block; /* Muestra el ícono del menú solo en pantallas pequeñas */
+    }
+    .sidebar {
+        position: absolute;
+        left: -100%;
+        top: 0;
+        z-index: 1000;
+        width: 200px;
+        transition: left 0.3s ease;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .content {
+        margin-left: 0;
+    }
+    .sidebar.active + .content {
+        margin-left: 200px;
+    }
+}

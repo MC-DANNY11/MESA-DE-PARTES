@@ -1,0 +1,21 @@
+<!-- form_derivar.html -->
+<form action="derivar.php" method="POST">
+    <!-- Campo oculto para enviar el ID del expediente -->
+    <input type="hidden" name="id_expediente" value="<?php echo $expediente_id; ?>">
+    
+    <!-- Selección del área de destino -->
+    <label for="area_destino">Seleccionar Área de Destino:</label>
+    <select name="id_area_destino" required>
+        <!-- Aquí cargamos las áreas desde la base de datos -->
+        <?php
+        require_once '../config/db_connection.php'; // Conexión a la base de datos
+        $areas = $conn->query("SELECT id_area, nombre_area FROM areas");
+        while ($area = $areas->fetch_assoc()) {
+            echo "<option value='{$area['id_area']}'>{$area['nombre_area']}</option>";
+        }
+        ?>
+    </select>
+ 
+    <button type="submit">Derivar</button>
+ </form>
+ 

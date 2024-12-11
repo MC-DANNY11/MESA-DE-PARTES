@@ -1,0 +1,403 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+header {
+    background-color: #004d40;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+header .menu-toggle {
+    display: none;
+    background-color: #004d40;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.dashboard-container {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background-color: #00796b;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+.sidebar img {
+    width: 100px;
+    display: block;
+    margin: 0 auto 20px;
+}
+.sidebar h3 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.sidebar a:hover {
+    background-color: #004d40;
+}
+.sidebar a:last-child {
+    margin-top: 20px;
+    background-color: #c62828;
+}
+.sidebar a:last-child:hover {
+    background-color: #b71c1c;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #004d40;
+}
+.add-area-btn {
+    display: inline-block;
+    background-color: #00796b;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.add-area-btn:hover {
+    background-color: #004d40;
+}
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #00796b;
+    color: #fff;
+    font-size: 16px;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+.action-links a {
+    color: #00796b;
+    text-decoration: none;
+    margin-right: 12px;
+    font-weight: bold;
+}
+.action-links a:hover {
+    color: #004d40;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header .menu-toggle {
+        display: block; /* Muestra el ícono del menú solo en pantallas pequeñas */
+    }
+
+    .sidebar {
+        position: absolute;
+        left: -100%; /* Oculta el menú lateral fuera de la pantalla */
+        top: 0;
+        z-index: 1000;
+        width: 200px;
+        transition: left 0.3s ease; /* Agrega una transición para el efecto */
+    }
+
+    .sidebar.active {
+        left: 0; /* Cuando se activa, el menú lateral se muestra */
+    }
+
+    .dashboard-container {
+        flex-direction: column; /* En pantallas pequeñas, el contenido se muestra en columna */
+    }
+
+    .content {
+        margin-left: 0; /* Sin margen extra cuando el menú está oculto */
+    }
+
+    .sidebar.active + .content {
+        margin-left: 200px; /* Cuando el menú está visible, mueve el contenido hacia la derecha */
+    }
+}
+
+/* Diseño básico para el pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1100;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #004d40;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #004d40;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modal form input,
+.modal form select,
+.modal form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.modal form button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modal form button:hover {
+    background-color: #004d40;
+}
+
+/* Ajuste para el modal de confirmación de eliminación */
+#delete-modal .modal-content {
+    text-align: center;
+}
+
+#delete-modal button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#delete-modal button:first-child {
+    background-color: #d32f2f;
+    color: white;
+}
+
+#delete-modal button:last-child {
+    background-color: #00796b;
+    color: white;
+}
+
+/* Estilos para los botones de acción (Editar y Eliminar) */
+.action-links button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+/* Botón de editar (verde) */
+.action-links .edit-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+.action-links .edit-btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+/* Botón de eliminar (rojo) */
+.action-links .delete-btn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+}
+.action-links .delete-btn:hover {
+    background-color: #d32f2f; /* Rojo más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+/* Alinear los botones */
+.action-links button i {
+    color: white; /* Aseguramos que el ícono también sea blanco */
+}
+/* Contenedor de la paginación */
+/* Contenedor de la paginación */
+.pagination {
+    text-align: left;  /* Alineación a la izquierda */
+    margin-top: 20px;  /* Espacio superior */
+}
+
+/* Lista de los elementos de paginación (cada enlace) */
+.pagination ul {
+    list-style: none;  /* Eliminar puntos de lista */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para los items de la paginación (enlaces) */
+.pagination li {
+    display: inline-block; /* Asegura que los elementos estén en línea (horizontalmente) */
+    margin: 0 5px; /* Espacio entre los elementos */
+}
+
+/* Estilo para los enlaces de paginación */
+.pagination a {
+    font-weight: normal;  /* No en negrita */
+    padding: 10px 20px;  /* Tamaño de los botones */
+    background-color: #f1f1f1; /* Color de fondo gris claro */
+    border: 1px solid #ddd;    /* Borde gris claro */
+    text-decoration: none;     /* Sin subrayado */
+    color: #000;               /* Texto negro */
+    font-size: 16px;           /* Tamaño de fuente */
+    transition: background-color 0.3s ease;  /* Transición suave para el hover */
+}
+
+/* Estilo cuando pasamos el ratón por encima */
+.pagination a:hover {
+    background-color: #ddd; /* Gris más oscuro en hover */
+}
+
+/* Estilo para la página activa */
+.pagination .active {
+    background-color: #4CAF50; /* Verde para la página activa */
+    color: white;              /* Texto blanco */
+}
+
+/* Estilo para los botones "Anterior" y "Siguiente" */
+.pagination .prev, .pagination .next {
+    font-weight: normal;  /* No en negrita */
+    color: #000;          /* Texto negro */
+    background-color: #f1f1f1; /* Gris claro */
+    border: 1px solid #ddd;    /* Borde gris claro */
+    padding: 10px 20px;   /* Tamaño de los botones */
+    margin: 0 5px;        /* Espacio entre los botones */
+    text-decoration: none;     /* Sin subrayado */
+    font-size: 16px;           /* Tamaño de fuente */
+}
+
+.pagination .prev:hover, .pagination .next:hover {
+    background-color: #ddd; /* Gris más oscuro en hover */
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 30px; /* Espacio para el ícono */
+    box-sizing: border-box;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

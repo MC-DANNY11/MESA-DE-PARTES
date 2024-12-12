@@ -56,11 +56,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <form action="../validate/update/u_area.php" method="post">
+                            <form action="../validate/update/u_areas.php" method="post">
                                 <div class="modal-body">
                                     <div class="row">
                                         <input hidden type="number" class="form-control" id="exampleInputPassword1"
-                                            name="nombre" value="<?= $area->id_area; ?>">
+                                            name="codigo" value="<?= $area->id_area; ?>">
                                         <div class="col-md-6 mb-2">
                                             <label for="exampleInputPassword1" class="form-label">Nombre Area</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1"

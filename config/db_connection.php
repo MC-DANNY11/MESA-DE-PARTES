@@ -3,8 +3,8 @@
 
 $host = 'localhost';      // Host de la base de datos (en XAMPP suele ser localhost)
 $dbname = 'bdmesadepartes'; // Nombre de la base de datos que creaste
-$username = 'mullisaca';       // Usuario de MySQL (en XAMPP el usuario predeterminado es 'root')
-$password = '123';           // Contraseña de MySQL (en XAMPP normalmente está vacía)
+$username = 'root';       // Usuario de MySQL (en XAMPP el usuario predeterminado es 'root')
+$password = '';           // Contraseña de MySQL (en XAMPP normalmente está vacía)
 
 try {
     // Crear una conexión PDO

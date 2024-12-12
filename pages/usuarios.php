@@ -1,10 +1,14 @@
 <?php include"../template/header.php"; 
  include "../config/db_connection.php";
 
- $areas="SELECT * FROM usuarios ";
- $stmt = $pdo->prepare($areas);
- $stmt->execute();
- $usuarios = $stmt->fetchAll(PDO::FETCH_OBJ);
+ $areas = "SELECT u.*, a.nombre AS nom_area 
+ FROM usuarios u 
+ JOIN areas a 
+ ON u.id_area = a.id_area";
+$stmt = $pdo->prepare($areas);
+$stmt->execute();
+$usuarios = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 
  $stmt ="SELECT * FROM Areas";
  $stmt = $pdo->prepare($stmt);
@@ -39,7 +43,7 @@
                 <td class="action-links">
                     <!-- Botón de editar con ícono verde -->
                     <button class="icon-btn edit-btn" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop<?= $dato->id_area; ?>">
+                        data-bs-target="#staticBackdrop<?= $dato->id_usuario; ?>">
                         <i class=" fa-solid fa-edit"></i>
                     </button>
 
@@ -52,7 +56,7 @@
             <!-- Button trigger modal -->
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop<?= $dato->id_area; ?>" data-bs-backdrop="static"
+            <div class="modal fade" id="staticBackdrop<?= $dato->id_usuario; ?>" data-bs-backdrop="static"
                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -60,20 +64,47 @@
                             <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="../validate/update/u_area.php" method="post">
+                        <form action="../validate/create/c_usuario.php" method="post">
                             <div class="modal-body">
                                 <div class="row">
-                                    <input hidden type="number" class="form-control" id="exampleInputPassword1"
-                                        name="nombre" value="<?= $area->id_area; ?>">
                                     <div class="col-md-6 mb-2">
-                                        <label for="exampleInputPassword1" class="form-label">Nombre Area</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1" name="nombre"
-                                            value="<?= $area->nombre; ?>">
+                                        <label for="exampleInputPassword1" class="form-label">Usuario</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1"
+                                            name="usuario" required  value="<?= $dato->nombre_usuario; ?>"> 
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="exampleInputPassword1" class="form-label">Descripción</label>
+                                        <label for="exampleInputPassword1" class="form-label">Nombres y
+                                            Apellidos</label>
                                         <input type="text" class="form-control" id="exampleInputPassword1"
-                                            name="descripcion" value="<?= $area->descripcion; ?>">
+                                            name="nombres" value="<?= $dato->nombre; ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="exampleInputPassword1" class="form-label">Correo</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" name="correo"
+                                            required value="<?= $dato->correo; ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="disabledSelect" class="form-label">Seleccionar Rol</label>
+                                        <select id="" class="form-select" name="rol">
+                                        <option value="<?= $dato->rol; ?>"><?= $dato->rol; ?></option>
+                                            <option value="admin">Administrador</option>
+                                            <option value="empleado">Empleado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="disabledSelect" class="form-label">Seleccionar Area</label>
+                                        <select id="" class="form-select" name="area">
+                                            <option value="<?= $dato->id_area; ?>"><?= $dato->nom_area; ?></option>
+                                            <?php foreach ($areas as $area) { ?>
+                                            <option value="<?php echo $area->id_area;?>"><?php echo $area->nombre;?>
+                                            </option>
+                                            <?php }?>
+
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -90,19 +121,7 @@
         </tbody>
     </table>
 </div>
-<div class="pagination">
-    <?php if ($page > 1): ?>
-    <a href="?page=<?php echo $page - 1; ?>">Anterior</a>
-    <?php endif; ?>
 
-    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-    <a href="?page=<?php echo $i; ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
-    <?php endfor; ?>
-
-    <?php if ($page < $total_pages): ?>
-    <a href="?page=<?php echo $page + 1; ?>">Siguiente</a>
-    <?php endif; ?>
-</div>
 
 <div class="modal fade" id="staticBackdropcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">

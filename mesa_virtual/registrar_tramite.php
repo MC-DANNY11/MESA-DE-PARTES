@@ -53,7 +53,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="tipo_persona" class="form-label">Tipo de Persona</label>
                             <select name="tipo_persona" id="tipo_persona" class="form-select" required>
-                            <option selected disabled value="">Seleccionar</option>
+                                <option selected disabled value="">Seleccionar</option>
                                 <option value="Persona Natural">Persona Natural</option>
                                 <option value="Persona Jurídica">Persona Jurídica</option>
                             </select>
@@ -62,7 +62,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="tipo_identificacion" class="form-label">Tipo de Identificación</label>
                             <select name="tipo_identificacion" id="tipo_identificacion" class="form-select" required>
-                            <option selected disabled value="">Seleccionar</option>
+                                <option selected disabled value="">Seleccionar</option>
                                 <option value="DNI">DNI</option>
                                 <option value="RUC">RUC</option>
                             </select>
@@ -108,25 +108,25 @@
                         </div>
                     </div>
 
-<div class="row">
-<div class="col-md-6 mb-3">
-                        <label for="asunto" class="form-label">Asunto</label>
-                        <input type="text" name="asunto" id="asunto" class="form-control" required>
-                    </div>
-<div class="col-md-6 mb-3">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="asunto" class="form-label">Asunto</label>
+                            <input type="text" name="asunto" id="asunto" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label for="tipo_identificacion" class="form-label">Tipo de Documento</label>
                             <select name="tipo_documento" id="tipo_identificacion" class="form-select" required>
-                            <option selected disabled value="">Seleccionar</option>
+                                <option selected disabled value="">Seleccionar</option>
                                 <option value="solicitud">Solicitud</option>
                                 <option value="oficio">Oficio</option>
-                                <option value="queja">Queja</option> 
-                                <option value="reclamo">Reclamo</option> 
+                                <option value="queja">Queja</option>
+                                <option value="reclamo">Reclamo</option>
                             </select>
 
                         </div>
-</div>
+                    </div>
 
-                    
+
 
                     <div class="col-12 mb-3">
                         <label for="notas_referencias" class="form-label">Notas/Referencias</label>

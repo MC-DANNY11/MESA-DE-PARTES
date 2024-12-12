@@ -1,6 +1,7 @@
 <?php
 // Obtiene la página actual (sin la ruta completa)
 $current_page = basename($_SERVER['PHP_SELF']);
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +14,22 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="https://kit.fontawesome.com/7d9141c5ec.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="icon" href="../lib/img/insig.png" type="image/x-icon">
+    <title>San Juan Bosco</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <link rel="stylesheet" href="../sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="../public/app/publico/css/lib/datatables-net/datatables.min.css">
+    <link rel="stylesheet" href="../public/app/publico/css/separate/vendor/datatables-net.min.css">
+    <link href="../public/app/publico/css/main.css" rel="stylesheet">
+    <link href="../public/app/publico/css/mis_estilos/estilos.css" rel="stylesheet">
     <style>
         /* Estilos básicos */
         body {

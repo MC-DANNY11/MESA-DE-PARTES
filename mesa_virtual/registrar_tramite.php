@@ -47,7 +47,7 @@
                 <h1 class="card-title text-center">Registrar Trámite</h1>
             </div>
             <div class="card-body">
-                <form action="controlador.php" method="POST" enctype="multipart/form-data">
+                <form action="../validate/create/c_expediente.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <!-- Columna 1 -->
                         <div class="col-md-4 mb-3">
@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control" required>
+                            <input type="number" name="telefono" id="telefono" class="form-control" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
@@ -111,9 +111,9 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="asunto" class="form-label">Asunto</label>
-                            <input type="text" name="asunto" id="asunto" class="form-control" required>
+                            <input type="text" name="asunto" id="asunto" class="form-control" required >
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="tipo_identificacion" class="form-label">Tipo de Documento</label>
                             <select name="tipo_documento" id="tipo_identificacion" class="form-select" required>
                                 <option selected disabled value="">Seleccionar</option>
@@ -123,6 +123,10 @@
                                 <option value="reclamo">Reclamo</option>
                             </select>
 
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="correo" class="form-label">Correo Electrónico</label>
+                            <input type="number" name="folio" id="correo" class="form-control" required>
                         </div>
                     </div>
 

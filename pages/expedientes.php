@@ -1,6 +1,4 @@
 <?php include "../template/header.php"; ?>
-<!-- Main Content -->
-<div class="content">
 
 <?php
 include "../config/db_connection.php";
@@ -11,7 +9,30 @@ $stmt = $pdo->prepare($stmt);
 $stmt->execute();
 $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// Consultar expedientes con nombre del área
+// Número de registros por página
+$records_per_page = 10;
+
+// Obtener el número total de registros
+$query = "SELECT COUNT(*) FROM expedientes";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$total_records = $stmt->fetchColumn();
+
+// Calcular el número total de páginas
+$total_pages = ceil($total_records / $records_per_page);
+
+// Obtener el número de la página actual
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($page > $total_pages) {
+    $page = $total_pages;
+} elseif ($page < 1) {
+    $page = 1;
+}
+
+// Calcular el límite de los resultados
+$start_from = ($page - 1) * $records_per_page;
+
+// Consultar expedientes con nombre del área y paginación
 $query = "SELECT 
     id_expediente,
     DATE_FORMAT(fecha_hora, '%d/%m/%Y %H:%i:%s') AS fecha_hora,
@@ -35,8 +56,12 @@ $query = "SELECT
     a.nombre AS nom_area  -- Mostrar nombre del área
 FROM expedientes e 
 JOIN areas a ON e.id_area = a.id_area
-ORDER BY fecha_hora DESC";
+ORDER BY fecha_hora DESC
+LIMIT :start_from, :records_per_page";
+
 $stmt = $pdo->prepare($query);
+$stmt->bindParam(':start_from', $start_from, PDO::PARAM_INT);
+$stmt->bindParam(':records_per_page', $records_per_page, PDO::PARAM_INT);
 $stmt->execute();
 $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -53,7 +78,8 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 <!-- Botón de búsqueda -->
 <button id="searchButton" class="search-btn">Buscar</button>
 
-<table class="table-container">
+<div class="table-container">
+    <table class="table-container">
     <thead >
         <tr>
             <th>Expediente</th>
@@ -112,7 +138,7 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                             </div>
                             <div class="modal-body">
                                 <form action="../validate/update/u_derivar.php" method="post">
-                                    <input type="number" name="codigo" value="<?= htmlspecialchars($dato->id_expediente); ?>">
+                                    <input hidden type="number" name="codigo" value="<?= htmlspecialchars($dato->id_expediente); ?>">
                                     <div class="mb-3">
                                         <label for="areaSelect" class="form-label">Área Destino</label>
                                         <select id="areaSelect" class="form-select" name="area">
@@ -122,8 +148,6 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
-                                    
-                                
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -141,5 +165,50 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
         <?php endif; ?>
     </tbody>
 </table>
+</div>
 
-<?php include "../template/footer.php"; ?>
+<div class="pagination">
+    <?php if ($page > 1): ?>
+        <a href="?page=<?php echo $page - 1; ?>">Anterior</a>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+        <a href="?page=<?php echo $i; ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+    <?php endfor; ?>
+
+    <?php if ($page < $total_pages): ?>
+        <a href="?page=<?php echo $page + 1; ?>">Siguiente</a>
+    <?php endif; ?>
+</div>
+
+<div class="modal fade" id="staticBackdropcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="../validate/create/c_area.php" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label for="exampleInputPassword1" class="form-label">Nombre Area</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="nombre" required> 
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label for="exampleInputPassword1" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="descripcion">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php include"../template/footer.php"; ?>

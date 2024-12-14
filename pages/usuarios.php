@@ -75,7 +75,7 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                         data-bs-target="#staticBackdrop<?= $dato->id_usuario; ?>">
                         <i class="fa-solid fa-edit"></i>
                     </button>
-                    <a href="javascript:void(0);" class="icon-btn delete-btn">
+                    <a href="" class="icon-btn delete-btn">
                         <i class="fa-solid fa-trash"></i>
                     </a>
                 </td>

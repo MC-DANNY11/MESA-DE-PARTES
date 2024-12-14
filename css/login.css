@@ -1,0 +1,176 @@
+/* Estilos Generales */
+body {
+    background-image: url('../lib/img/ini.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+/* Estilos del formulario de inicio de sesión */
+.login-form {
+    background-color:rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #024d02;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form h1 {
+    margin: 0 0 20px;
+    color: #024d02;
+    text-align: center;
+    font-family: "Rowdies", sans-serif;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #024d02;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Rowdies", sans-serif;
+}
+
+.input-group input {
+    width: 100%;
+    background-color:rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    border: 2px solid #024d02;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-family: "Rowdies", sans-serif;
+}
+
+.login-button {
+    background-color: #024d02;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: "Rowdies", sans-serif;
+}
+
+.login-button:hover {
+    background-color: #ffffff;
+    border: 2px solid #004d00;
+    color: #004b00;
+    font-family: "Rowdies", sans-serif;
+}
+
+/* Estilos del Footer */
+footer {
+    background-color: transparent;
+    color: #2196F3;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .login-form {
+        padding: 15px;
+    }
+
+    .login-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 10px;
+    }
+
+    .login-button {
+        padding: 10px;
+    }
+}
+
+/* Opciones de inicio de sesión con Google y Facebook */
+.opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+.opciones div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    padding: 5px 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.opciones div a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.opciones .google {
+    background-color: transparent;
+    border: 2px solid #db4437;
+}
+.opciones .google a {
+    color: #db4437;
+}
+
+.opciones .facebook {
+    background-color: transparent;
+    border: 2px solid #0169f1;
+}
+.opciones .facebook a {
+    color: #0169f1;
+}
+
+.opciones div:hover {
+    transform: translateY(-3px);
+    background-color: #f1f1f1;
+}
+
+.copy{
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 1px;
+    width: 500px ;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+.copy a{
+    color: #024d02;
+    font-weight: bold;
+}

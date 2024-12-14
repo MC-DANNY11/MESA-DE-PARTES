@@ -1,0 +1,191 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Barra lateral */
+.barra-lateral {
+    width: 230px;
+    background-color: #00796b;
+    color: white;
+    transition: margin 0.3s ease-in-out;
+    padding-top: 20px;
+    border-radius: 20px 20px 20px 20px;
+    margin: 3px 3px 3px 3px;
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Asegura que los botones estén arriba */
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    display: block;
+    visibility: visible;
+}
+
+.logo-container img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+/* Enlaces de navegación */
+.navegacion {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    /* Espacio entre el logo y los botones */
+}
+
+.navegacion-items {
+    margin-bottom: 0rem;
+}
+
+.navegacion-links {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.navegacion-links:hover,
+.navegacion-links.active {
+    background-color: white;
+    color: #2196F3;
+    font-weight: bold;
+}
+
+/* Estilo del botón de cerrar sesión */
+.cerrar {
+    color: white;
+    background-color: #e74c3c;
+    /* Rojo */
+    padding: 10px;
+    margin-top: auto;
+    /* Asegura que el botón se alinee al final */
+    text-align: center;
+    margin: 15px 20px 20px 20px;
+    /* Espacio alrededor del botón */
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cerrar:hover {
+    background-color: #c0392b;
+    /* Rojo más oscuro */
+}
+
+/* Contenido */
+#contenido-de-la-pagina {
+    margin-left: 230px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Estilo para la tabla */
+.tabla-contenedor {
+    margin-top: 20px;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    /* Hacer el scroll suave en dispositivos táctiles */
+    border: 1px solid #ddd;
+    /* Estilo de borde */
+}
+
+/* Barra de desplazamiento personalizada para la tabla */
+.tabla-contenedor::-webkit-scrollbar {
+    height: 12px;
+}
+
+.tabla-contenedor::-webkit-scrollbar-thumb {
+    background-color: #2196F3;
+    border-radius: 10px;
+}
+
+table.dataTable {
+    width: 100% !important;
+}
+
+/* Botón flotante para mostrar/ocultar la barra lateral */
+.boton-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2196F3;
+    color: white;
+    width: 58px !important;
+    height: 58px !important;
+    padding: 10px 20px;
+    border-radius: 29px;
+    font-size: 1.5rem;
+    z-index: 1001;
+    cursor: pointer;
+    align-items: center;
+    display: none;
+    /* Inicialmente oculto */
+}
+
+/* Responsividad */
+/* Responsividad */
+@media (max-width: 768px) {
+    .barra-lateral {
+        width: 0;
+        padding-top: 60px;
+    }
+
+    #contenido-de-la-pagina {
+        margin-left: 0;
+    }
+
+    .barra-lateral.active {
+        width: 230px;
+    }
+
+    #contenido-de-la-pagina.active {
+        margin-left: 0;
+    }
+
+    /* Ocultar logo cuando barra lateral esté contraída */
+    .barra-lateral:not(.active) .logo-container {
+        visibility: hidden;
+    }
+
+    /* Mostrar el botón flotante para mostrar/ocultar la barra lateral */
+    .boton-menu {
+        display: block;
+        /* Asegura que el botón flotante sea visible */
+    }
+
+    /* Ocultar los botones de la barra lateral cuando esté contraída */
+    .barra-lateral:not(.active) .navegacion-links {
+        display: none;
+    }
+
+    /* Mantener visible el botón de cerrar sesión, pero solo si la barra lateral está activa */
+    .barra-lateral.active .cerrar {
+        display: block;
+    }
+
+    /* Ocultar el botón de cerrar sesión cuando la barra lateral no esté activa */
+    .barra-lateral:not(.active) .cerrar {
+        display: none;
+    }
+}

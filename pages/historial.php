@@ -52,15 +52,8 @@ $totalPages = ceil($totalRecords / $itemsPerPage);
 <a href="Reporte_PDF.php" class="add-area-btn">
     <i class="fa-solid fa-file-pdf"></i> Exportar a PDF
 </a>
-
-<!-- Campo de búsqueda -->
-<form method="GET" class="search-form">
-    <input type="text" name="search" value="<?= htmlspecialchars($search) ?>" placeholder="Buscar por expediente o usuario..." class="search-input">
-    <button type="submit" class="search-btn">Buscar</button>
-</form>
-
 <div class="table-container">
-    <table >
+    <table  id="example">
         <thead>
             <tr>
                 <th>ID Historial</th>
@@ -92,21 +85,5 @@ $totalPages = ceil($totalRecords / $itemsPerPage);
     </table>
 </div>
 
-<!-- Paginación -->
-<div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1 ?>&search=<?= htmlspecialchars($search) ?>">Anterior</a>
-    <?php endif; ?>
-
-    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-        <a href="?page=<?= $i ?>&search=<?= htmlspecialchars($search) ?>" class="<?= $i == $page ? 'active' : '' ?>">
-            <?= $i ?>
-        </a>
-    <?php endfor; ?>
-
-    <?php if ($page < $totalPages): ?>
-        <a href="?page=<?= $page + 1 ?>&search=<?= htmlspecialchars($search) ?>">Siguiente</a>
-    <?php endif; ?>
-</div>
 
 <?php include "../template/footer.php"; ?>

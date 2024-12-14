@@ -38,9 +38,8 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
     <i class="fa-solid fa-plus"></i> Agregar Área
 </a>
 
-<!-- Tabla de áreas -->
 <div class="table-container">
-    <table>
+    <table id="example">
         <thead>
             <tr>
                 <th>ID</th>
@@ -103,21 +102,6 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
     </table>
 </div>
 
-<!-- Paginación -->
-<div class="pagination">
-    <?php if ($page > 1): ?>
-    <a href="?page=<?php echo $page - 1; ?>">Anterior</a>
-    <?php endif; ?>
-
-    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-    <a href="?page=<?php echo $i; ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
-    <?php endfor; ?>
-
-    <?php if ($page < $total_pages): ?>
-    <a href="?page=<?php echo $page + 1; ?>">Siguiente</a>
-    <?php endif; ?>
-</div>
-
 <!-- Modal para agregar nueva área -->
 <div class="modal fade" id="staticBackdropcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -132,11 +116,11 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <div class="row">
                         <div class="col-md-6 mb-2">
                             <label class="form-label">Nombre Area</label>
-                            <input type="text" class="form-control" name="nombre" required> 
+                            <input type="text" class="form-control" name="nombre"  oninput="capitalizeWords(this)" required> 
                         </div>
                         <div class="col-md-6 mb-2">
                             <label class="form-label">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion">
+                            <input type="text" class="form-control"  oninput="capitalizeWords(this)" name="descripcion">
                         </div>
                     </div>
                 </div>

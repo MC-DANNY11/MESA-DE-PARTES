@@ -1,0 +1,235 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#custom-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.barra-lateral {
+    width: 230px;
+    background-color: #2196F3; /* Color de fondo del sidebar */
+    color: white;
+    transition: margin 0.3s ease-in-out;
+    padding-top: 20px;
+    border-radius: 20px 0 20px 20px;
+    margin:  3px 0 3px 3px;
+}
+
+.logo {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.navegacion {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navegacion-items {
+    margin-bottom: 0rem;
+}
+
+.navegacion-links {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    margin: 3px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.navegacion-links:hover,
+.navegacion-links.active {
+    background-color: white; /* Color de fondo al hacer hover o cuando está activo */
+    color: #2196F3; /* Color del texto al hacer hover o cuando está activo */
+    font-weight: bold;
+}
+
+#contenido-de-la-pagina {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.barra-superior {
+    background-color: #2196F3;
+    padding: 1px 20px;
+    display: flex;
+    margin: 3px 5px 0 0;
+    border-radius: 0 20px 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+.titulo {
+    align-items: end;
+}
+.boton-menu {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.opciones-barra-superios {
+    display: flex;
+    align-items: center;
+}
+
+.opciones {
+    list-style: none;
+    margin: 0 ;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    color: white;
+    width: 15px;
+}
+
+
+
+.pie-de-pagina {
+    background-color: #f8f9fa;
+    padding: 10px;
+    color: #2196F3;
+    text-align: start;
+    border-top: 2px solid #2196F3;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow:5px 5px 15px 5px #2196F3;
+}
+
+.pie-contenido {
+    margin: 0;
+}
+
+#custom-wrapper.toggled .barra-lateral {
+    margin-left: -230px;
+}
+
+@media (max-width: 768px) {
+    .barra-lateral {
+        margin-left: -230px;
+    }
+
+    #custom-wrapper.toggled .barra-lateral {
+        margin-left: 0;
+    }
+
+    .boton-menu {
+        margin-right: 20px;
+    }
+}
+.titulo{
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+.fa{
+    margin-right: 20px;
+
+}
+
+
+
+input {
+    padding: 5px 10px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+    border: 2px solid #2196F3 !important;
+    background-color: #f9f9f9 !important;
+    width: 100% !important;
+    transition: all 0.3s ease !important;
+}
+
+input:focus {
+    background-color: #fff !important;
+    border-color: #2196F3 !important;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.2) !important;
+    outline: none !important;
+}
+
+
+select.form-select {
+    padding:5px 10px; /* Aumenta el padding para un área clickeable más grande */
+    font-size: 16px; /* Tamaño de texto */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid #2196F3; /* Color del borde */
+    background-color: #f9f9f9; /* Color de fondo */
+    width: 100%; /* Hace que el select ocupe todo el ancho */
+    transition: all 0.3s ease; /* Transición suave para cambios */
+}
+
+select.form-select:focus {
+    background-color: #fff; /* Fondo blanco cuando se enfoca */
+    border-color: #2196F3; /* Cambia el color del borde cuando está enfocado */
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.2); /* Sombra suave en el foco */
+    outline: none; /* Remueve el borde predeterminado del navegador */
+}
+
+/* Para ajustar la flecha del select */
+select.form-select {
+    appearance: none; /* Elimina el estilo predeterminado de la flecha */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"><path fill="none" stroke="%23999" stroke-width="1.5" d="M1 1l2 2-2 2"/></svg>'); /* Personaliza la flecha */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Posición de la flecha */
+    background-size: 12px; /* Tamaño de la flecha */
+    padding-right: 30px; /* Asegura que el padding derecho deje espacio para la flecha */
+}
+
+
+
+label.form-label {
+    font-size: 15px; /* Tamaño de fuente del label */
+    font-weight: bold; /* Hace el texto más grueso */
+    color: #2196F3; /* Color del texto */
+    display: block; /* Asegura que el label se muestre como un bloque completo */
+    margin-bottom: 6px; /* Espacio inferior entre el label y el input */
+    transition: color 0.3s ease; /* Transición suave en el cambio de color */
+}
+
+
+/* Estilo para los labels de los campos requeridos */
+label.form-label.required::after {
+    content: " *"; /* Añade un asterisco después del texto del label */
+    color: red; /* Color del asterisco */
+}
+
+
+.modal-title {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Hace el texto más grueso */
+    color: #2196F3; /* Color del texto */
+    text-align: center !important; /* Centrar el texto */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    padding-bottom: 10px; /* Espacio entre el título y la línea */
+}
+
+
+.submenu {
+    display: none;
+    padding-left: 20px; /* Aumentar sangría del submenú */
+}
+
+.navegacion-items:hover .submenu {
+    display: block; /* Mostrar submenú al pasar el mouse */
+}

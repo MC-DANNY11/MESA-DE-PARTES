@@ -49,12 +49,15 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
 </a>
 
 <div class="table-container">
-    <table>
+    <table id="example">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
+                <th>Usuario</th>
+                <th>Nombres y Apellidos</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Area</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -63,6 +66,9 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
             <tr>
                 <td><?= $dato->id_usuario; ?></td>
                 <td><?= $dato->nombre_usuario; ?></td>
+                <td><?= $dato->nombre; ?></td>
+                <td><?= $dato->correo; ?></td>
+                <td><?= $dato->rol; ?></td>
                 <td><?= $dato->nom_area; ?></td>
                 <td class="action-links">
                     <button class="icon-btn edit-btn" data-bs-toggle="modal"
@@ -135,20 +141,8 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
         </tbody>
     </table>
 </div>
-
-<div class="pagination">
-    <?php if ($page > 1): ?>
-    <a href="?page=<?= $page - 1; ?>">Anterior</a>
-    <?php endif; ?>
-
-    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-    <a href="?page=<?= $i; ?>" class="<?= ($i == $page) ? 'active' : ''; ?>"><?= $i; ?></a>
-    <?php endfor; ?>
-
-    <?php if ($page < $total_pages): ?>
-    <a href="?page=<?= $page + 1; ?>">Siguiente</a>
-    <?php endif; ?>
 </div>
+
 <div class="modal fade" id="staticBackdropcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

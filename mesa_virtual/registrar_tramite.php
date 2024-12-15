@@ -37,9 +37,13 @@
     <body>
         <div class="container my-5">
             <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h1 class="card-title text-center">Registrar Trámite</h1> 
-                    <button>cerrar</button>
+                <div class="card-header bg-primary text-white position-relative">
+                    <h1 class="card-title text-center position-relative">
+                        Registrar Trámite
+                        <a href="../mesa_virtual/index.php" class="back-button position-absolute top-50 end-0 translate-middle-y" style="width: 40px; height: 40px; margin-right: 10px;">
+                            <img src="Imagenes/Volver.png" alt="Volver" style="max-width: 100%; max-height: 100%; object-fit: contain;"> 
+                        </a>
+                    </h1>
                 </div>
                 <div class="card-body">
                 <form action="c_expediente.php" method="POST" enctype="multipart/form-data">

@@ -36,13 +36,14 @@ $headers = [
     'G1' => 'Estado',
     'H1' => 'Área Actual',
     'I1' => 'Código Seguimiento',
-    'J1' => 'Telefono',
+    'J1' => 'Teléfono',
+    'K1' => 'Notas Referencias', // Nuevo encabezado
 ];
 
 foreach ($headers as $cell => $value) {
     $sheet->setCellValue($cell, $value);
 }
-$sheet->getStyle('A1:I1')->applyFromArray($headerStyle);
+$sheet->getStyle('A1:K1')->applyFromArray($headerStyle);
 
 // Consulta SQL
 $query = "SELECT 
@@ -55,6 +56,7 @@ $query = "SELECT
     e.estado,
     e.codigo_seguridad,
     e.telefono,
+    COALESCE(e.notas_referencias, 'Sin notas') as notas_referencias, -- Campo corregido
     COALESCE(a.nombre, 'Sin asignar') as area_nombre
 FROM expedientes e
 LEFT JOIN seguimiento s ON e.id_expediente = s.id_expediente
@@ -75,12 +77,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           ->setCellValue('G' . $rowCount, $row['estado'])
           ->setCellValue('H' . $rowCount, $row['area_nombre'])
           ->setCellValue('I' . $rowCount, $row['codigo_seguridad'])
-          ->setCellValue('J' . $rowCount, $row['telefono']);
+          ->setCellValue('J' . $rowCount, $row['telefono'])
+          ->setCellValue('K' . $rowCount, $row['notas_referencias']); // Añadiendo el nuevo campo
     $rowCount++;
 }
 
 // Autoajustar columnas
-foreach (range('A', 'J') as $col) {
+foreach (range('A', 'K') as $col) {
     $sheet->getColumnDimension($col)->setAutoSize(true);
 }
 
@@ -93,3 +96,4 @@ $writer = new Xlsx($spreadsheet);
 $writer->save('php://output');
 exit;
 ?>
+    

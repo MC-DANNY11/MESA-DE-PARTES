@@ -52,10 +52,10 @@ $total_pages = ceil($total_items / $items_per_page);
         </div>        
         <!-- Main Content -->
         <div class="content">
-            <a href="reporteareasEXCEL.php" class="add-area-btn">
+            <a href="../EXCEL/reporteareasEXCEL.php" class="add-area-btn">
                 <i class="fa-solid fa-file-excel"></i> Exportar a Excel
             </a>
-            <a href="reporteareasPDF.php" class="add-area-btn">
+            <a href="../PDF/reporteareasPDF.php" class="add-area-btn">
                 <i class="fa-solid fa-file-pdf"></i> Exportar a PDF
             </a>
             <a href="javascript:void(0);" class="add-area-btn" onclick="showModal('add')">

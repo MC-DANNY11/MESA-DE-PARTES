@@ -27,6 +27,7 @@ try {
     // Encabezados de la tabla
     $sheet->setCellValue('A3', 'ID');
     $sheet->setCellValue('B3', 'Nombre');
+    $sheet->setCellValue('C3', 'Descripcion');
     $sheet->getStyle('A3:B3')->getFont()->setBold(true);
     $sheet->getStyle('A3:B3')->getAlignment()->setHorizontal('center');
 
@@ -41,6 +42,7 @@ try {
         foreach ($areas as $area) {
             $sheet->setCellValue('A' . $row, $area['id_area']);
             $sheet->setCellValue('B' . $row, $area['nombre']);
+            $sheet->setCellValue('C' . $row, $area['descripcion']);
             $row++;
         }
     } else {
@@ -52,7 +54,7 @@ try {
     }
 
     // Ajustar automáticamente el ancho de las columnas
-    foreach (range('A', 'B') as $column) {
+    foreach (range('A', 'C') as $column) {
         $sheet->getColumnDimension($column)->setAutoSize(true);
     }
 

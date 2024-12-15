@@ -143,10 +143,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id_usuario"])) {
         <!-- Main Content -->
         <div class="content">
             <!-- Botones de exportación -->
-            <a href="reporte_excel.php" class="add-area-btn">
+            <a href="../EXCEL/reporteUsuario_excel.php" class="add-area-btn">
                 <i class="fa-solid fa-file-excel"></i> Exportar a Excel
             </a>
-            <a href="reporte_pdf.php" class="add-area-btn">
+            <a href="../PDF/reporteUsuario_pdf.php" class="add-area-btn">
                 <i class="fa-solid fa-file-pdf"></i> Exportar a PDF
             </a>
 

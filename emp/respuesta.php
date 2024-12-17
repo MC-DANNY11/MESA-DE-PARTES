@@ -1,4 +1,4 @@
-<?php include "../template/header.php"; ?>
+<?php include "../etemplate/header.php"; ?>
 
 <?php
 include "../config/db_connection.php";
@@ -173,4 +173,4 @@ $(document).ready(function() {
 
 </div>
 
-<?php include"../template/footer.php"; ?>
+<?php include"../etemplate/footer.php"; ?>

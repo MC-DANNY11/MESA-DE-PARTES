@@ -1,5 +1,5 @@
 <?php
-require "../template/header.php";
+require "../etemplate/header.php";
 
 // Verificar si el usuario está logueado
 //if (!isset($_SESSION['user_id'])) {
@@ -166,4 +166,4 @@ custom-card">
         new ApexCharts(document.querySelector("#chart2"), options5).render();
     </script>
 
-    <?php include "../template/footer.php"; ?>
+    <?php include "../etemplate/footer.php"; ?>

@@ -12,6 +12,7 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="icon" href="../imagenes/ESCUDO DISTRITO DE PALCA.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Municipalidad Distrital de Palca</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

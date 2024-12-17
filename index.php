@@ -21,7 +21,7 @@
             align-items: center;
             justify-content: space-between;
             background-color: #ffffff;
-            padding: 15px 30px;
+            padding: 10px 30px;
             width: 100%;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
@@ -101,19 +101,19 @@
             object-fit: cover;
         }
         .footer {
-            background-color: #00796b; /* Updated color */
-            color: #ffffff;
+            background-color:rgb(6, 140, 140); /* Updated color */
+            color:rgb(251, 251, 251);
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
             width: 100%;
             position: relative;
             bottom: 0;
         }
         .footer .welcome-button {
-            background-color: #00bfa5; /* Updated color */
-            color: #fff;
-            padding: 10px 20px;
+            background-color:rgb(1, 174, 151); /* Updated color */
+            color: #ffff;
+            padding: 5px 20px;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: bold;

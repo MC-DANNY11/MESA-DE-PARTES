@@ -95,7 +95,7 @@
             </ul>
 
             <!-- Botón de Cerrar sesión al final -->
-            <a href="cerrar_sesion.php" class="cerrar">
+            <a href="../index.php" class="cerrar">
                 <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión
             </a>
         </div>

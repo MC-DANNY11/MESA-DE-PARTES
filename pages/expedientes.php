@@ -40,10 +40,10 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
-<a href="Reporte_EXCEL.php" class="add-area-btn">
+<a href="../EXCEL/ReporteExpedientes_EXCEL.php" class="add-area-btn">
     <i class="fa-solid fa-file-excel"></i> Exportar a Excel
 </a>
-<a href="Reporte_PDF.php" class="add-area-btn">
+<a href="../PDF/ReporteExpedientes_PDF.php" class="add-area-btn">
     <i class="fa-solid fa-file-pdf"></i> Exportar a PDF
 </a>
 
@@ -102,6 +102,26 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </td>
             </tr>
+            <!-- Popup para atender expediente -->
+            <div id="popupModal" class="popup-modal">
+                <div class="popup-content">
+                    <span id="closePopup" class="close-btn">&times;</span>
+                    <h3>Atender Expediente</h3>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id_expediente" id="id_expediente">
+                        <div class="form-group">
+                            <label for="respuesta">Respuesta:</label>
+                            <textarea name="respuesta" id="respuesta" rows="4" cols="50" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="pdf_file">Seleccione el archivo PDF:</label>
+                            <input type="file" name="pdf_file" id="pdf_file" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Atender</button>
+                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
             <!-- Modal para derivar -->
             <div class="modal fade" id="exampleModal<?= $dato->id_expediente; ?>" tabindex="-1"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">

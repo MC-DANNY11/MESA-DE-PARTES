@@ -38,10 +38,10 @@ $stmt->execute();
 $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
-<a href="reporteareasEXCEL.php" class="add-area-btn">
+<a href="../EXCEL/reporteUsuario_excel.php" class="add-area-btn">
     <i class="fa-solid fa-file-excel"></i> Exportar a Excel
 </a>
-<a href="reporteareasPDF.php" class="add-area-btn">
+<a href="../PDF/reporteUsuario_pdf.php" class="add-area-btn">
     <i class="fa-solid fa-file-pdf"></i> Exportar a PDF
 </a>
 <a href="#" class="add-area-btn" data-bs-toggle="modal" data-bs-target="#staticBackdropcrear">

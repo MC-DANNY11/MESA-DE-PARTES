@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_name"] = $user["nombre"];
         $_SESSION["user_area"] = $user["id_area"]; // Agregar el área del usuario a la sesión
 
-        header("Location: dashboard.php");
+        header("Location: pages/index.php");
         exit();
     } else {
         $error_message = "Usuario o contraseña incorrectos.";

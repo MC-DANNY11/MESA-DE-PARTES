@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pdf->AddPage();
 
     // Agregar el logo y el texto en la misma línea
-    $logo = '../../imagenes/img1.jpg'; // Ruta del logo
+    $logo = '../../imagenes/ESCUDO DISTRITO DE PALCA.jpg'; // Ruta del logo
     if (file_exists($logo)) {
         $pdf->Image($logo, 10, 10, 20, 20); // X, Y, ancho, alto
     }

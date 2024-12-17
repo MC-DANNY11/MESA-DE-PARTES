@@ -79,7 +79,8 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <td><?= htmlspecialchars($dato->nom_area); ?></td> <!-- Mostrar nombre del área -->
                 <td>
                     <div class="btn-group" role="group">
-                        <a href="javascript:void(0);" onclick="mostrarModal(<?= $dato->id_expediente; ?>);"
+                        <a href="javascript:void(0);" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalatender<?= $dato->id_expediente; ?>"
                             class="btn btn-primary btn-sm" title="Atender expediente">
                             <i class="fas fa-check"></i>
                         </a>
@@ -128,6 +129,39 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                                 </div>
 
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Derivar</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal para Atender -->
+            <div class="modal fade" id="exampleModalatender<?= $dato->id_expediente; ?>" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Atender Expediente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="../validate/update/u_atender.php" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                <input hidden type="number" name="codigo"
+                                value="<?= htmlspecialchars($dato->id_expediente); ?>">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="exampleInputPassword1" class="form-label">Respuesta</label>
+                                        <textarea class="form-control" id="textarea" rows="3" name="respuesta"></textarea>
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <label for="exampleInputPassword1" class="form-label">Selecionar PDF:</label>
+                                        <input type="file" class="form-control" id="exampleInputPassword1"
+                                            name="archivo">
+                                    </div>
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

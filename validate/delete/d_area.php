@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Prepara la consulta para eliminar el registro
-    $eliminar = "DELETE FROM usuarios WHERE id_usuario = ?";
+    $eliminar = "DELETE FROM areas WHERE id_area = ?";
     $stmt = $pdo->prepare($eliminar);
 
     // Ejecuta la consulta y verifica si se eliminó un registro

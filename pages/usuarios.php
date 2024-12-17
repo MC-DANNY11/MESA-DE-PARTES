@@ -74,9 +74,10 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <button class="icon-btn edit-btn" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop<?= $dato->id_usuario; ?>">
                         <i class="fa-solid fa-edit"></i>
-                    </button>
-                    <a href="" class="icon-btn delete-btn">
-                        <i class="fa-solid fa-trash"></i>
+                    </button> |
+                    <a href="#" data-href="../validate/delete/d_usuario.php?id=<?= $dato->id_usuario; ?>"
+                        class="icon-btn delete-btn" onclick="EliminarUsuario(event)">
+                        <i class="fa fa-trash" aria-hidden="true" style="margin-right: 5px; font-size: 16px;"></i>
                     </a>
                 </td>
             </tr>
@@ -96,17 +97,19 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <div class="col-md-6 mb-2">
                                         <label for="usuario" class="form-label">Usuario</label>
                                         <input type="text" class="form-control" name="usuario" required
-                                            value="<?= $dato->nombre_usuario; ?>"> 
+                                            value="<?= $dato->nombre_usuario; ?>">
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label for="nombres" class="form-label">Nombres y Apellidos</label>
-                                        <input type="text" class="form-control" name="nombres" value="<?= $dato->nombre; ?>">
+                                        <input type="text" class="form-control" name="nombres"
+                                            value="<?= $dato->nombre; ?>">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mb-2">
                                         <label for="correo" class="form-label">Correo</label>
-                                        <input type="text" class="form-control" name="correo" required value="<?= $dato->correo; ?>">
+                                        <input type="text" class="form-control" name="correo" required
+                                            value="<?= $dato->correo; ?>">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -130,7 +133,8 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>

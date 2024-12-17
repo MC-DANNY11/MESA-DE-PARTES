@@ -11,8 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <link rel="icon" href="../lib/img/insig.png" type="image/x-icon">
-    <title>San Juan Bosco</title>
+    <link rel="icon" href="../imagenes/ESCUDO DISTRITO DE PALCA.png" type="image/x-icon">
+    <title>Municipalidad Distrital de Palca</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
@@ -33,8 +33,6 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://kit.fontawesome.com/7d9141c5ec.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" href="../lib/img/insig.png" type="image/x-icon">
-    <title>San Juan Bosco</title>
 
 </head>
 

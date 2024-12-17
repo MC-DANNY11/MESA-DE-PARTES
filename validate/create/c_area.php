@@ -24,7 +24,7 @@ if(!empty($_POST['nombre'])){
         if ($stmt) {
             $_SESSION['exito'] = "Área registrada correctamente";
         } else {
-            $_SESSION['error'] = "Ocurrió un error al registrar el área";
+            $_SESSION['alerta'] = "Ocurrió un error al registrar el área";
         }
     }
 

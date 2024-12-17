@@ -48,7 +48,7 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 </a>
 
 
-<div class="table-container" >
+<div class="table-container">
     <table id="examples">
         <thead>
             <tr>
@@ -102,26 +102,7 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </td>
             </tr>
-            <!-- Popup para atender expediente -->
-            <div id="popupModal" class="popup-modal">
-                <div class="popup-content">
-                    <span id="closePopup" class="close-btn">&times;</span>
-                    <h3>Atender Expediente</h3>
-                    <form method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id_expediente" id="id_expediente">
-                        <div class="form-group">
-                            <label for="respuesta">Respuesta:</label>
-                            <textarea name="respuesta" id="respuesta" rows="4" cols="50" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="pdf_file">Seleccione el archivo PDF:</label>
-                            <input type="file" name="pdf_file" id="pdf_file" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Atender</button>
-                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                    </form>
-                </div>
-            </div>
+
             <!-- Modal para derivar -->
             <div class="modal fade" id="exampleModal<?= $dato->id_expediente; ?>" tabindex="-1"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,18 +147,18 @@ $expedientes = $stmt->fetchAll(PDO::FETCH_OBJ);
     </table>
 </div>
 <script>
-        $(document).ready(function () {
-            $('#examples').DataTable({
-                responsive: true, // Hace la tabla adaptable
-                paging: true, // Habilita la paginación
-                searching: true, // Habilita el cuadro de búsqueda
-                ordering: true, // Habilita el ordenamiento
-                language: {
-                    url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" // Traducción al español
-                }
-            });
-        });
-    </script>
+$(document).ready(function() {
+    $('#examples').DataTable({
+        responsive: true, // Hace la tabla adaptable
+        paging: true, // Habilita la paginación
+        searching: true, // Habilita el cuadro de búsqueda
+        ordering: true, // Habilita el ordenamiento
+        language: {
+            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" // Traducción al español
+        }
+    });
+});
+</script>
 <div class="modal fade" id="staticBackdropcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

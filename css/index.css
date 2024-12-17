@@ -1,52 +1,72 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
 
-    .custom-card {
-        position: relative;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px #2196F3;
-        border: 1px solid #2196F3;
-        transition: transform 0.2s;
-        margin-bottom: 10px;
-    }
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    .custom-icon {
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        background-color: #2196F3;
-        padding: 10px;
-        border-radius: 10px;
-        color: white;
-        font-size: 30px;
-        /* Tamaño del ícono */
-        width: 50px;
-        /* Tamaño del círculo */
-        height: 50px;
-        /* Tamaño del círculo */
-        display: flex;
-        align-items: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+h2 {
+    text-align: center;
+    color: #2E7D32; /* Dark Green for heading */
+    margin-bottom: 20px;
+}
 
-    .custom-number {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 40px;
-        color: #2196F3;
-        font-weight: bold;
-    }
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Space between cards */
+}
 
-    .custom-text {
-        margin-top: 50px;
-        font-weight: bold;
-        text-align: center;
-        color: #2196F3;
-        font-size: 25px;
-    }
+/* Card Styles */
+.card {
+    background-color: #BBDEFB; /* Light Blue for card background */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 300px; /* Responsive flex item */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+}
 
-    .custom-card:hover {
-        transform: scale(1.05);
-        /* Efecto hover */
-        cursor: pointer;
+.card-icon {
+    font-size: 40px; /* Icon size */
+    color: #2E7D32; /* Dark Green for icon */
+    margin-bottom: 10px;
+}
+
+.card-content a {
+    text-decoration: none;
+    color: #1976D2; /* Dark Blue for link */
+    font-weight: bold;
+    font-size: 18px;
+    display: block; /* Make the link a block element */
+    margin-top: 10px; /* Space above the link */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically on small screens */
+        align-items: center; /* Center cards */
     }
+}

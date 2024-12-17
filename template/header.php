@@ -81,6 +81,12 @@
                     </a>
                 </li>
                 <li class="navegacion-items">
+                    <a href="respuesta.php"
+                        class="navegacion-links <?php echo ($current_page == 'respuesta.php') ? 'active' : ''; ?>">
+                        <i class="fa fa-exchange-alt"></i>Respuestas
+                    </a>
+                </li>
+                <li class="navegacion-items">
                     <a href="historial.php"
                         class="navegacion-links <?php echo ($current_page == 'historial.php') ? 'active' : ''; ?>">
                         <i class="fa fa-history" aria-hidden="true"></i> Historial

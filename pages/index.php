@@ -21,14 +21,14 @@ require "../template/header.php";
                 <h3 >Expedientes</h3>
             </div>
         </a>
-        <div class="card">
+        <a class="card">
             <div class="card-icon">
                 <i class="fa-solid fa-check-circle"></i>
             </div>
             <div class="card-content">
                 <a href="../pages/historial.php?estado=atendido">Historial de Documentos</a>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

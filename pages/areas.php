@@ -59,9 +59,10 @@ $areas = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <button class="icon-btn edit-btn" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop<?= $area->id_area; ?>">
                         <i class="fa-solid fa-edit"></i>
-                    </button>
-                    <a href="javascript:void(0);" class="icon-btn delete-btn">
-                        <i class="fa-solid fa-trash"></i>
+                    </button> |
+                    <a href="#" data-href="../validate/delete/d_area.php?id=<?= $area->id_area; ?>"
+                        class="icon-btn delete-btn" onclick="EliminarArea(event)">
+                        <i class="fa fa-trash" aria-hidden="true" style="margin-right: 5px; font-size: 16px;"></i>
                     </a>
                 </td>
             </tr>

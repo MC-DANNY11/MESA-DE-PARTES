@@ -161,6 +161,7 @@ input {
     transition: all 0.3s ease !important;
 }
 
+
 input:focus {
     background-color: #fff !important;
     border-color: #2196F3 !important;
@@ -232,4 +233,21 @@ label.form-label.required::after {
 
 .navegacion-items:hover .submenu {
     display: block; /* Mostrar submenú al pasar el mouse */
+}
+
+#textarea {
+    padding: 5px 10px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+    border: 2px solid #2196F3 !important;
+    background-color: #f9f9f9 !important;
+    width: 100% !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Opcional: Estilo al enfocar el textarea */
+#textarea:focus {
+    border-color: #1976D2; /* Color más oscuro al enfocar */
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5); /* Sombra azul */
+    outline: none; /* Elimina el borde predeterminado */
 }

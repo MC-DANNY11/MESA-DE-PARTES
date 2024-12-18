@@ -2,17 +2,33 @@
 require '../config/db_connection.php';
 
 $expediente = null;
+$seguimiento = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['codigo_seguridad']) && !empty($_POST['codigo_seguridad'])) {
         $codigo_seguridad = $_POST['codigo_seguridad'];
+        
+        // Fetch the expediente based on the security code
         $stmt = $pdo->prepare("SELECT * FROM expedientes WHERE codigo_seguridad = ?");
         $stmt->execute([$codigo_seguridad]);
         $expediente = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // If expediente is found, fetch the latest seguimiento record
+        if ($expediente) {
+            $id_expediente = $expediente['id_expediente']; // Assuming 'id_expediente' is the primary key
+            $seguimiento_stmt = $pdo->prepare("SELECT * FROM seguimiento WHERE id_expediente = ? ORDER BY fecha_hora DESC LIMIT 1");
+            $seguimiento_stmt->execute([$id_expediente]);
+            $seguimiento = $seguimiento_stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            echo "<script>alert('Código de seguridad no encontrado.');</script>";
+        }
     } else {
         echo "<script>alert('Por favor, ingresa un código de seguridad.');</script>";
     }
 }
+
+// Display the current date
+$current_date = date('Y-m-d H:i:s');
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Trámite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,12 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 20px;
         }
         .search-section h2 {
-            background-color: #3ba99c;
+            background-color: #3ba99c; /* Background color */
             color: white;
             padding: 10px;
-            margin: 0 -20px 20px;
+            margin: 0 -20px 20px; /* Adjust margin to ensure it aligns with the container */
             font-size: 1.5em;
             text-align: center;
+            border-radius: 5px; /* Optional: Add rounded corners */
         }
         .form-group {
             display: flex;
@@ -106,15 +124,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .result-section h3 {
             margin-top: 0;
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: #333;
+            border-bottom: 2px solid #3ba99c;
+            padding-bottom: 10px;
         }
         .result-section p {
             font-size: 1em;
             margin: 5px 0;
+            padding: 10px;
+            border-left: 4px solid #3ba99c;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .result-section .file-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .result-section .file-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -145,25 +177,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h3>Detalles del Trámite</h3>
                 <p><strong>Remitente:</strong> <?php echo $expediente['remitente']; ?></p>
                 <p><strong>Asunto:</strong> <?php echo $expediente['asunto']; ?></p>
-                <p><strong>Estado:</strong> <?php echo $expediente['estado']; ?></p>
                 <p><strong>Fecha:</strong> <?php echo $expediente['fecha_hora']; ?></p>
                 
-                <!-- Mostrar respuesta -->
-                <?php if (!empty($expediente['respuesta'])): ?>
-                    <p><strong>Respuesta:</strong> <?php echo $expediente['respuesta']; ?></p>
+                <!-- Mostrar detalles del seguimiento -->
+                <?php if ($seguimiento): ?>
+                    <h3>Detalles del Seguimiento</h3>
+                    <p><strong>Fecha y Hora:</strong> <?php echo $seguimiento['fecha_hora']; ?></p>
+                    <p><strong>Estado:</strong> <?php echo $expediente['estado']; ?></p>
+                    <p><strong>Respuesta:</strong> <?php echo !empty($seguimiento['respuesta']) ? $seguimiento['respuesta'] : 'No hay respuesta registrada.'; ?></p>
+                    
+                    <!-- Mostrar archivo adjunto -->
+                    <?php if (!empty($seguimiento['adjunto'])): ?>
+                        <p><strong>Archivo Adjunto:</strong>
+                            <a class="file-link" href="../respuesta_archivos/<?php echo htmlspecialchars($seguimiento['adjunto']); ?>" target="_blank">
+                                <i class="fas fa-file-download"></i> Ver Archivo
+                            </a>
+                        </p>
+                    <?php else: ?>
+                        <p><strong>Archivo Adjunto:</strong > No hay archivo adjunto.</p>
+                    <?php endif; ?>
                 <?php else: ?>
-                    <p><strong>Respuesta:</strong> No hay respuesta registrada.</p>
-                <?php endif; ?>
-
-                <!-- Mostrar archivo adjunto -->
-                <?php if (!empty($expediente['archivo_respuesta'])): ?>
-                    <p><strong>Archivo Adjunto:</strong>
-                        <a href="../respuesta_archivos/<?php echo htmlspecialchars($expediente['archivo_respuesta']); ?>" target="_blank">
-                            Ver PDF
-                        </a>
-                    </p>
-                <?php else: ?>
-                    <p><strong>Archivo Adjunto:</strong> No hay archivo adjunto.</p>
+                    <p>No hay seguimiento registrado para este expediente.</p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

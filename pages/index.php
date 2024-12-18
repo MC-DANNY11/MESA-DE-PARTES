@@ -98,8 +98,7 @@ try {
     <br><br>
     <div class="row">
         <div class="col-md-12 mb-2">
-            <div class="card ```php
-custom-card">
+            <div class="card ```php custom-card">
                 <div id="chart2"></div>
             </div>
         </div>
